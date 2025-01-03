@@ -1,0 +1,7 @@
+streamlit
+pandas
+numpy
+pymongo
+plotly
+streamlit-autorefresh
+requests
