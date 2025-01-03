@@ -6,13 +6,14 @@ from pymongo import MongoClient
 import plotly.graph_objs as go
 from streamlit_autorefresh import st_autorefresh
 import requests
+import os
+from pymongo import MongoClient
 
-# Konfiguracja MongoDB Atlas
 def get_mongo_collection():
-    # Ustawienie connection string do MongoDB Atlas
-    client = MongoClient("mongodb+srv://fkubala:7LmXLx1qY5O4EzYK@cluster0.fkszr.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
-    db = client["real_time_data"]  # Nazwa bazy danych
-    collection = db["generated_data"]  # Nazwa kolekcji
+    connection_string = os.getenv("MONGO_CONNECTION_STRING")
+    client = MongoClient(connection_string)
+    db = client["real_time_data"]
+    collection = db["generated_data"]
     return collection
 
 # Coinbase API Endpoint
