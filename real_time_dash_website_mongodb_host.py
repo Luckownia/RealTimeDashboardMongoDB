@@ -7,7 +7,6 @@ import plotly.graph_objs as go
 from streamlit_autorefresh import st_autorefresh
 import requests
 import os
-from pymongo import MongoClient
 
 def get_mongo_collection():
     connection_string = os.getenv("MONGO_CONNECTION_STRING")
